@@ -1,9 +1,9 @@
 h1 {
-	color:#1616BC;
+	color:#F93636;
 	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
 	text-align: center;
 	font-style: italic;
-	font-size: 40px;
+	font-size: 60px;
 }
 .deKoning  {
     display: block;
@@ -11,4 +11,4 @@ h1 {
     margin-right: auto 
 } 
 
-body {background-color:#EFFBF8;}
+body {background-color:#FFDCDC;}
