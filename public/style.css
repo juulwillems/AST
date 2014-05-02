@@ -1,14 +1,70 @@
-h1 {
-	color:#F93636;
-	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-	text-align: center;
-	font-style: italic;
-	font-size: 60px;
+.axis path,
+.axis line {
+    fill: none;
+    stroke: blue;
+    stroke-width: 1.5px;
+    shape-rendering: crispEdges;
 }
-.deKoning  {
-    display: block;
-    margin-left: auto;
-    margin-right: auto 
-} 
 
-body {background-color:#FFDCDC;}
+.axis text {
+    font-family: "Andale Mono", AndaleMono, monospace;
+    font-size: 12px;
+    stroke: blue;
+   }
+
+.xtext {
+	font-family: "Andale Mono", AndaleMono, monospace;
+	font-size: 16px;
+    stroke: #380B61;
+    fill: #380B61; 
+}
+
+.ytext {
+	font-family: "Andale Mono", AndaleMono, monospace;
+	font-size: 16px;
+    stroke: #380B61;
+    fill: #380B61; 
+}
+
+h1 {
+    font-family: "Andale Mono", AndaleMono, monospace;
+    font-size: 36px;
+    color: black;
+    text-align: center;
+}
+
+.bar.positive {
+    fill: #4B088A;
+}
+
+.bar.negative {
+    fill: #FF00BF;
+}
+
+.xAxis path,
+.xAxis line {
+    fill: none;
+    stroke: black;
+    stroke-width: 1.5px;
+    shape-rendering: crispEdges;
+}
+
+.xAxis text {
+    font-family: "Andale Mono", AndaleMono, monospace;
+    font-size: 12px;
+    stroke: black;
+   }
+
+.yAxis path,
+.yAxis line {
+    fill: none;
+    stroke: black;
+    stroke-width: 1.5px;
+    shape-rendering: crispEdges;
+}
+
+.yAxis text {
+    font-family: "Andale Mono", AndaleMono, monospace;
+    font-size: 12px;
+    stroke: black;
+   }

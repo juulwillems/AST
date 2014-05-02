@@ -1,0 +1,78 @@
+
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+<polymer-element name="amsterdam-sealevel">
+
+
+<script> 
+var data = [
+                {name: "My Place", value: 3.0}, 
+                {name: "Pacific Parc", value: 4.0},
+                {name: "P.C. Hoofthuis", value: 11.7}, 
+                {name: "USC", value: -0.7},
+                {name: "Wethouder Verheijhal", value: 4.0},
+                {name: "Bungehuis", value: 9.1},
+                {name: "Nieuwe Anita", value: 5.7} 
+              ];
+					
+
+var width = 500
+var height = 500
+var barPadding = 50
+
+
+var svg = d3.select("body")
+			.append("svg")
+			.attr("width", w)
+			.attr("height", h)
+
+var xScale = d3.scale.linear()
+    .domain(d3.extent(data, function(d) { return d.value; }))
+    .range([0, width]);
+
+var yScale = d3.scale.ordinal()
+    .domain(data.map(function(d) { return d.name; }))
+    .rangeRoundBands([0, height], .2);
+
+var xAxis = d3.svg.axis()
+    .scale(xScale)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(yScale)
+    .orient("left");
+
+svg.selectAll(".bar")
+    .data(data)
+  .enter().append("rect")
+    .attr("class", function(d) { return d.value < 0 ? "bar negative" : "bar positive"; })
+    .attr("x", function(d) { return xScale(Math.min(0, d.value)); })
+    .attr("y", function(d) { return yScale(d.name); })
+    .attr("width", function(d) { return Math.abs(xScale(d.value) - xScale(0)); })
+    .attr("height", yScale.rangeBand());
+
+   
+  svg.append("g")
+      .attr("class", "xAxis")
+      .attr("transform", "translate(0," + (height - padding) + ")")
+      .call(xAxis);
+
+  svg.append("g")
+    .attr("class", "yAxis")
+    .attr("transform", "translate(" + padding + ",0)")
+    .call(yAxis);
+
+  svg.append("text")
+  .attr("class", "xtext")
+        .attr("x", w/2 )
+        .attr("y", h-(padding/10) )
+        .style("text-anchor", "middle")
+        .text("Sealevel in meters");
+                
+</script>
+	
+ 
+</polymer-element>
