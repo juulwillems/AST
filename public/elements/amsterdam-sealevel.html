@@ -4,10 +4,16 @@
 
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
+<script src="script.js"></script>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
 <polymer-element name="amsterdam-sealevel">
 
 
 <script> 
+
+$("#sealevel").one("click", function () {
+
 var data = [
                 {name: "My Place", value: 3.0}, 
                 {name: "Pacific Parc", value: 4.0},
@@ -19,9 +25,9 @@ var data = [
               ];
 					
 
-var width = 500
-var height = 500
-var barPadding = 50
+var w = 500
+var h = 500
+var padding = 50
 
 
 var svg = d3.select("body")
@@ -31,11 +37,11 @@ var svg = d3.select("body")
 
 var xScale = d3.scale.linear()
     .domain(d3.extent(data, function(d) { return d.value; }))
-    .range([0, width]);
+    .range([0, w]);
 
 var yScale = d3.scale.ordinal()
     .domain(data.map(function(d) { return d.name; }))
-    .rangeRoundBands([0, height], .2);
+    .rangeRoundBands([0, h], .2);
 
 var xAxis = d3.svg.axis()
     .scale(xScale)
@@ -57,7 +63,7 @@ svg.selectAll(".bar")
    
   svg.append("g")
       .attr("class", "xAxis")
-      .attr("transform", "translate(0," + (height - padding) + ")")
+      .attr("transform", "translate(0," + (h - padding) + ")")
       .call(xAxis);
 
   svg.append("g")
@@ -71,6 +77,8 @@ svg.selectAll(".bar")
         .attr("y", h-(padding/10) )
         .style("text-anchor", "middle")
         .text("Sealevel in meters");
+
+});
                 
 </script>
 	

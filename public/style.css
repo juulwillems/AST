@@ -1,3 +1,23 @@
+h1 {
+    font-family: "Andale Mono", AndaleMono, monospace;
+    font-size: 36px;
+    color: black;
+    text-align: center;
+}
+
+h2 {
+    font-family: "Andale Mono", AndaleMono, monospace;
+    font-size: 18px;
+    color: black;
+    text-align: center;
+}
+
+h2:hover 
+{
+    color: red;
+}
+
+
 .axis path,
 .axis line {
     fill: none;
@@ -26,12 +46,6 @@
     fill: #380B61; 
 }
 
-h1 {
-    font-family: "Andale Mono", AndaleMono, monospace;
-    font-size: 36px;
-    color: black;
-    text-align: center;
-}
 
 .bar.positive {
     fill: #4B088A;
