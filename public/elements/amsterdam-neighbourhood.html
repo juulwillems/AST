@@ -1,0 +1,69 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+<script src="script.js"></script>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<polymer-element name="amsterdam-neighbourhood">
+<template>
+</template>
+
+  <script>
+
+  $("#neighbourhood").one("click", function () {
+  
+  var dataN = [
+                {neighbourhood: "Oud-West", amount: 1}, 
+                {neighbourhood: "City-Centre", amount: 2},
+                {neighbourhood: "Staatsliedenbuurt", amount: 1 }, 
+                {neighbourhood: "Watergraafsmeer", amount: 1 },
+                {neighbourhood: "Indische Buurt", amount: 1}
+              ];
+
+   var width = 800,
+    height = 500,
+    radius = Math.min(width, height) / 2;
+
+   var color = d3.scale.ordinal()
+    .range(["#00E68A", "#66FFFF", "#CCFFFF", "#CCFF33", "#00FF99"]);
+
+   var arc = d3.svg.arc()
+    .outerRadius(radius - 10)
+    .innerRadius(0);
+
+   var pie = d3.layout.pie()
+    .sort(null)
+    .value(function(d) { return d.amount; });
+
+var svg = d3.select("p3").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+var g = svg.selectAll(".arc")
+      .data(pie(dataN))
+    .enter().append("g")
+      .attr("class", "arc");
+
+  g.append("path")
+      .attr("d", arc)
+      .style("fill", function(d) { return color(d.data.neighbourhood); });
+
+  g.append("text")
+  	.attr("class", "textN")
+      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+      .attr("dy", ".35em")
+      .style("text-anchor", "middle")
+      .text(function(d) { return d.data.neighbourhood; });
+
+
+});
+
+
+
+  </script>
+	
+ 
+</polymer-element>

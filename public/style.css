@@ -1,3 +1,11 @@
+#accordion {
+width: 800px;
+border: 2px solid black;
+margin-left: auto ;
+margin-right: auto ;
+
+}
+
 h1 {
     font-family: "Andale Mono", AndaleMono, monospace;
     font-size: 36px;
@@ -82,3 +90,9 @@ h2:hover
     font-size: 12px;
     stroke: black;
    }
+
+.textN {
+  font-family: "Andale Mono", AndaleMono, monospace;
+    font-size: 12px;
+    stroke: black;   
+}

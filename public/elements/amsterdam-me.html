@@ -7,9 +7,8 @@
 <script src="script.js"></script>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
-<polymer-element name="amsterdam-me">
-	<template>
-  <div class="coordinate"></div>
+<polymer-element name="amsterdam-me" id="longitude">
+<template>
 </template>
 
   <script>
@@ -37,7 +36,7 @@ var dataset = [
 			];
 
 
-    var svg = d3.select("body")
+    var svg = d3.select("p1")
             .append("svg")
             .attr("width", w)
             .attr("height", h);
@@ -102,7 +101,7 @@ svg.append("text")
     .style("text-anchor", "middle")
     .style("writing-mode", "tb");
     
-});        
+});       
 
 </script>
 	
