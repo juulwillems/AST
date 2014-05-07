@@ -1,9 +1,22 @@
-#accordion {
+.accordion {
 width: 800px;
 border: 2px solid black;
 margin-left: auto ;
 margin-right: auto ;
 
+}
+
+.door {
+    width: 120px;
+    height: 160px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.door img {
+    width: 100%;
+    height: 100%;
+  
 }
 
 h1 {
@@ -20,7 +33,7 @@ h2 {
     text-align: center;
 }
 
-h2:hover 
+.hover :hover 
 {
     color: red;
 }
@@ -96,3 +109,4 @@ h2:hover
     font-size: 12px;
     stroke: black;   
 }
+

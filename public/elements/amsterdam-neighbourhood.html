@@ -6,13 +6,31 @@
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
 <polymer-element name="amsterdam-neighbourhood">
+
 <template>
+<h2 id="neighbourhood" class="hover" on-click="{{click}}" on-mouseenter="{{mouseenter}}" on-mouseleave="{{mouseleave}}">Neighbourhood</h2>  
 </template>
 
-  <script>
+  <script> 
 
-  $("#neighbourhood").one("click", function () {
+
+  Polymer('amsterdam-neighbourhood', {
+
+    mouseenter: function () {
+
+document.getElementById("neighbourhood").innerHTML='<h2>Click here to see the Pie Chart</h2> '
+
+},
+     mouseleave: function () {
+
+    document.getElementById("neighbourhood").innerHTML='<h2>Neighbourhood</h2>'
+
+  },
+
+    click: function() {
+
   
+
   var dataN = [
                 {neighbourhood: "Oud-West", amount: 1}, 
                 {neighbourhood: "City-Centre", amount: 2},
@@ -36,7 +54,7 @@
     .sort(null)
     .value(function(d) { return d.amount; });
 
-var svg = d3.select("p3").append("svg")
+var svg = d3.select("p4").append("svg")
     .attr("width", width)
     .attr("height", height)
   .append("g")
@@ -57,6 +75,11 @@ var g = svg.selectAll(".arc")
       .attr("dy", ".35em")
       .style("text-anchor", "middle")
       .text(function(d) { return d.data.neighbourhood; });
+
+
+
+
+}
 
 
 });

@@ -4,30 +4,37 @@
     <meta charset="utf-8">
     <title>Amsterdam, Space and Me</title>
     <link rel="stylesheet" href="style.css">
+    <script src="bower_components/platform/platform.js"></script>
     <script src="script.js"></script>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="bower_components/platform/platform.js"></script>
+  
 
+     <link rel="import" href="elements/amsterdam-doors.html">
      <link rel="import" href="elements/amsterdam-me.html">
      <link rel="import" href="elements/amsterdam-sealevel.html">
      <link rel="import" href="elements/amsterdam-neighbourhood.html">
  </head>
   <body>
-  <h1>Amsterdam, Space and Me</h1>
-  <div id="accordion">
-    <h2 id="coordinates">Coordinates</h2>
-      <p1>
-        <amsterdam-me></amsterdam-me>
-      </p1>
-    <h2 id="sealevel">Sealevel<h2>
-      <p2>
-        <amsterdam-sealevel></amsterdam-sealevel>
-      </p2>
-    <h2 id="neighbourhood">Neighbourhood</h2>
-      <p3>
-        <amsterdam-neighbourhood></amsterdam-neighbourhood>
-      </p3>
-  </div>
-    
-  </body>
-</html>
+    <h1>Amsterdam, Space and Me</h1>
+     <div class="accordion">
+          
+          <p1>
+            <amsterdam-doors></amsterdam-doors>
+          </p1>
+
+          <p2>
+            <amsterdam-me></amsterdam-me>
+          </p2>
+          
+          <p3>
+            <amsterdam-sealevel></amsterdam-sealevel>
+          </p3>
+          
+          <p4>
+            <amsterdam-neighbourhood></amsterdam-neighbourhood>
+          </p4>
+
+      </div>
+    </body>
+
+   

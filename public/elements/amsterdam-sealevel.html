@@ -9,10 +9,28 @@
 
 <polymer-element name="amsterdam-sealevel">
 
+<template>
+  <h2 id="sealevel" class="hover" on-click="{{click}}" on-mouseenter="{{mouseenter}}" on-mouseleave="{{mouseleave}}">Sealevel<h2>
+</template>
+
 
 <script> 
 
-$("#sealevel").one("click", function () {
+Polymer('amsterdam-sealevel', {
+
+
+    mouseenter: function () {
+
+document.getElementById("sealevel").innerHTML='<h2>Click here to see the Bar Chart</h2> '
+
+},
+     mouseleave: function () {
+
+    document.getElementById("sealevel").innerHTML='<h2>Sealevel</h2>'
+
+  },
+
+    click: function() {
 
 var data = [
                 {name: "My Place", value: 3.0}, 
@@ -30,7 +48,7 @@ var h = 500
 var padding = 50
 
 
-var svg = d3.select("p2")
+var svg = d3.select("p3")
 			.append("svg")
 			.attr("width", w)
 			.attr("height", h)
@@ -78,7 +96,8 @@ svg.selectAll(".bar")
         .style("text-anchor", "middle")
         .text("Sealevel in meters");
 
- 
+} 
+
 });
 
 </script>

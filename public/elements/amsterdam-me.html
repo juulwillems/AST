@@ -7,14 +7,30 @@
 <script src="script.js"></script>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
-<polymer-element name="amsterdam-me" id="longitude">
-<template>
-</template>
+<polymer-element name="amsterdam-me">
+
+  <template>
+    <h2 class="hover" id="coordinates" on-click="{{click}}" on-mouseenter="{{mouseenter}}" on-mouseleave="{{mouseleave}}">Coordinates</h2>
+  </template>
 
   <script>
 
-$("#coordinates").one("click", function () {
+  Polymer('amsterdam-me', {
 
+    mouseenter: function () {
+
+document.getElementById("coordinates").innerHTML='<h2>Click here to see the Scatter Plot</h2> '
+
+},
+
+  mouseleave: function () {
+
+    document.getElementById("coordinates").innerHTML='<h2>Coordinates</h2>'
+
+  },
+
+  click: function() {
+      
 var w = 500;
 var h = 500;
 var padding = 50;
@@ -23,20 +39,20 @@ var color = d3.scale.category20();
 
 var dataset = [
         [52.38047, 4.87763], 
-				[52.38642, 4.86982], 
-				[52.37436, 4.88990], 
-				[52.35767, 4.94757],
-				[52.35754, 4.93075], 
-				[52.37201, 4.88936], 
-				[52.37418, 4.87254],
-				[52.38379, 4.87581],
-				[52.38167, 4.88895],
-				[52.36157, 4.87373],
-				[52.35178, 4.95028]
-			];
+        [52.38642, 4.86982], 
+        [52.37436, 4.88990], 
+        [52.35767, 4.94757],
+        [52.35754, 4.93075], 
+        [52.37201, 4.88936], 
+        [52.37418, 4.87254],
+        [52.38379, 4.87581],
+        [52.38167, 4.88895],
+        [52.36157, 4.87373],
+        [52.35178, 4.95028]
+      ];
 
 
-    var svg = d3.select("p1")
+    var svg = d3.select("p2")
             .append("svg")
             .attr("width", w)
             .attr("height", h);
@@ -53,13 +69,13 @@ var dataset = [
                      .range([h-padding, padding]);
 
 
-	var xAxis = d3.svg.axis()
-					.scale(xScale)
-					.orient("bottom");
+  var xAxis = d3.svg.axis()
+          .scale(xScale)
+          .orient("bottom");
 
-	var yAxis = d3.svg.axis()
-				.scale(yScale)
-				.orient("left")
+  var yAxis = d3.svg.axis()
+        .scale(yScale)
+        .orient("left")
 
 
 
@@ -77,8 +93,8 @@ var dataset = [
    .attr("fill",function(d,i){return color(i);});
 
 svg.append("g")
-	.attr("class", "axis")
-	.attr("transform", "translate(0," + (h - padding) + ")")
+  .attr("class", "axis")
+  .attr("transform", "translate(0," + (h - padding) + ")")
     .call(xAxis);
 
 svg.append("g")
@@ -87,21 +103,30 @@ svg.append("g")
     .call(yAxis);
 
 svg.append("text")
-	.attr("class", "xtext")
+  .attr("class", "xtext")
         .attr("x", w/2 )
         .attr("y", h-(padding/10) )
         .style("text-anchor", "middle")
         .text("Latitude")
 
 svg.append("text")
-	.attr("class", "ytext")
+  .attr("class", "ytext")
     .attr("x", padding/10)
     .attr("y", h/2)
     .text("Longitude")
     .style("text-anchor", "middle")
     .style("writing-mode", "tb");
+
+  }
+
+  });
+
+
     
-});       
+
+
+  
+ 
 
 </script>
 	
