@@ -6,107 +6,18 @@ margin-right: auto ;
 
 }
 
-.door {
-    width: 120px;
-    height: 160px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.door img {
-    width: 100%;
-    height: 100%;
-  
-}
-
-h1 {
-    font-family: "Andale Mono", AndaleMono, monospace;
-    font-size: 36px;
-    color: black;
-    text-align: center;
-}
-
-h2 {
-    font-family: "Andale Mono", AndaleMono, monospace;
-    font-size: 18px;
-    color: black;
-    text-align: center;
-}
-
-.hover :hover 
-{
-    color: red;
-}
 
 
-.axis path,
-.axis line {
-    fill: none;
-    stroke: blue;
-    stroke-width: 1.5px;
-    shape-rendering: crispEdges;
-}
-
-.axis text {
-    font-family: "Andale Mono", AndaleMono, monospace;
-    font-size: 12px;
-    stroke: blue;
-   }
-
-.xtext {
-	font-family: "Andale Mono", AndaleMono, monospace;
-	font-size: 16px;
-    stroke: #380B61;
-    fill: #380B61; 
-}
-
-.ytext {
-	font-family: "Andale Mono", AndaleMono, monospace;
-	font-size: 16px;
-    stroke: #380B61;
-    fill: #380B61; 
-}
 
 
-.bar.positive {
-    fill: #4B088A;
-}
 
-.bar.negative {
-    fill: #FF00BF;
-}
 
-.xAxis path,
-.xAxis line {
-    fill: none;
-    stroke: black;
-    stroke-width: 1.5px;
-    shape-rendering: crispEdges;
-}
 
-.xAxis text {
-    font-family: "Andale Mono", AndaleMono, monospace;
-    font-size: 12px;
-    stroke: black;
-   }
 
-.yAxis path,
-.yAxis line {
-    fill: none;
-    stroke: black;
-    stroke-width: 1.5px;
-    shape-rendering: crispEdges;
-}
 
-.yAxis text {
-    font-family: "Andale Mono", AndaleMono, monospace;
-    font-size: 12px;
-    stroke: black;
-   }
 
-.textN {
-  font-family: "Andale Mono", AndaleMono, monospace;
-    font-size: 12px;
-    stroke: black;   
-}
+
+
+
+
 

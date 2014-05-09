@@ -1,5 +1,4 @@
-var headings = $("h2");
-var paragraphs = $("p");
+
 
 
 $(function() {

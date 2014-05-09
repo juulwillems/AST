@@ -9,8 +9,43 @@
 
 <polymer-element name="amsterdam-me">
 
+<style type="text/css">
+
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: blue;
+        stroke-width: 1.5px;
+        shape-rendering: crispEdges;
+    }
+
+    .axis text {
+        font-family: "Andale Mono", AndaleMono, monospace;
+        font-size: 12px;
+        stroke: blue;
+       }
+
+    .xtext {
+      font-family: "Andale Mono", AndaleMono, monospace;
+      font-size: 16px;
+        stroke: #380B61;
+        fill: #380B61; 
+    }
+
+    .ytext {
+      font-family: "Andale Mono", AndaleMono, monospace;
+      font-size: 16px;
+        stroke: #380B61;
+        fill: #380B61; 
+    }
+
+
+</style>
+
   <template>
+    
     <h2 class="hover" id="coordinates" on-click="{{click}}" on-mouseenter="{{mouseenter}}" on-mouseleave="{{mouseleave}}">Coordinates</h2>
+    
   </template>
 
   <script>
@@ -33,7 +68,7 @@ document.getElementById("coordinates").innerHTML='<h2>Click here to see the Scat
       
 var w = 500;
 var h = 500;
-var padding = 50;
+var padding = 75;
 
 var color = d3.scale.category20();
 

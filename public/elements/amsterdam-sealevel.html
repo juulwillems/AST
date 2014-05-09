@@ -9,6 +9,46 @@
 
 <polymer-element name="amsterdam-sealevel">
 
+<style type="text/css">
+
+    .bar.positive {
+        fill: #4B088A;
+    }
+
+    .bar.negative {
+        fill: #FF00BF;
+    }
+
+    .xAxis path,
+    .xAxis line {
+        fill: none;
+        stroke: black;
+        stroke-width: 1.5px;
+        shape-rendering: crispEdges;
+    }
+
+    .xAxis text {
+        font-family: "Andale Mono", AndaleMono, monospace;
+        font-size: 12px;
+        stroke: black;
+       }
+
+    .yAxis path,
+    .yAxis line {
+        fill: none;
+        stroke: black;
+        stroke-width: 1.5px;
+        shape-rendering: crispEdges;
+    }
+
+    .yAxis text {
+        font-family: "Andale Mono", AndaleMono, monospace;
+        font-size: 12px;
+        stroke: #A8A8BF;
+       }
+
+</style>
+
 <template>
   <h2 id="sealevel" class="hover" on-click="{{click}}" on-mouseenter="{{mouseenter}}" on-mouseleave="{{mouseleave}}">Sealevel<h2>
 </template>
@@ -45,7 +85,7 @@ var data = [
 
 var w = 500
 var h = 500
-var padding = 50
+var padding = 27
 
 
 var svg = d3.select("p3")
@@ -59,7 +99,7 @@ var xScale = d3.scale.linear()
 
 var yScale = d3.scale.ordinal()
     .domain(data.map(function(d) { return d.name; }))
-    .rangeRoundBands([0, h], .2);
+    .rangeRoundBands([0, h], .4);
 
 var xAxis = d3.svg.axis()
     .scale(xScale)
@@ -67,7 +107,7 @@ var xAxis = d3.svg.axis()
 
 var yAxis = d3.svg.axis()
     .scale(yScale)
-    .orient("left");
+    .orient("right");
 
 svg.selectAll(".bar")
     .data(data)
@@ -77,7 +117,7 @@ svg.selectAll(".bar")
     .attr("y", function(d) { return yScale(d.name); })
     .attr("width", function(d) { return Math.abs(xScale(d.value) - xScale(0)); })
     .attr("height", yScale.rangeBand());
-
+ 
    
   svg.append("g")
       .attr("class", "xAxis")
@@ -92,7 +132,7 @@ svg.selectAll(".bar")
   svg.append("text")
   .attr("class", "xtext")
         .attr("x", w/2 )
-        .attr("y", h-(padding/10) )
+        .attr("y", h )
         .style("text-anchor", "middle")
         .text("Sealevel in meters");
 

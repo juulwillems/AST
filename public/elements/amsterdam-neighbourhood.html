@@ -7,6 +7,16 @@
 
 <polymer-element name="amsterdam-neighbourhood">
 
+<style type="text/css">
+
+    .textN {
+      font-family: "Andale Mono", AndaleMono, monospace;
+        font-size: 12px;
+        stroke: black;   
+    }
+
+</style>
+
 <template>
 <h2 id="neighbourhood" class="hover" on-click="{{click}}" on-mouseenter="{{mouseenter}}" on-mouseleave="{{mouseleave}}">Neighbourhood</h2>  
 </template>
@@ -54,13 +64,13 @@ document.getElementById("neighbourhood").innerHTML='<h2>Click here to see the Pi
     .sort(null)
     .value(function(d) { return d.amount; });
 
-var svg = d3.select("p4").append("svg")
+  var svg = d3.select("p4").append("svg")
     .attr("width", width)
     .attr("height", height)
   .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-var g = svg.selectAll(".arc")
+  var g = svg.selectAll(".arc")
       .data(pie(dataN))
     .enter().append("g")
       .attr("class", "arc");
