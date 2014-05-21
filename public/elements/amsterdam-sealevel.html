@@ -1,10 +1,9 @@
-
-
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/core-ajax/core-ajax.html">
 
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
-<script src="script.js"></script>
+<script src="/app.js"></script>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
 <polymer-element name="amsterdam-sealevel">
@@ -50,48 +49,27 @@
 </style>
 
 <template>
+
   <h2 id="sealevel" class="hover" on-click="{{click}}" on-mouseenter="{{mouseenter}}" on-mouseleave="{{mouseleave}}">Sealevel<h2>
+
+  <svg id="bar"></svg>
+
 </template>
 
 
 <script> 
 
-Polymer('amsterdam-sealevel', {
-
-
-    mouseenter: function () {
-
-document.getElementById("sealevel").innerHTML='<h2>Click here to see the Bar Chart</h2> '
-
-},
-     mouseleave: function () {
-
-    document.getElementById("sealevel").innerHTML='<h2>Sealevel</h2>'
-
-  },
-
-    click: function() {
-
-var data = [
-                {name: "My Place", value: 3.0}, 
-                {name: "Pacific Parc", value: 4.0},
-                {name: "P.C. Hoofthuis", value: 11.7}, 
-                {name: "USC", value: -0.7},
-                {name: "Wethouder Verheijhal", value: 4.0},
-                {name: "Bungehuis", value: 9.1},
-                {name: "Nieuwe Anita", value: 5.7} 
-              ];
-					
+function barchart (el, data) {
 
 var w = 500
 var h = 500
 var padding = 27
 
 
-var svg = d3.select("p3")
-			.append("svg")
-			.attr("width", w)
-			.attr("height", h)
+var svg = d3.select(el)
+      .append("svg")
+      .attr("width", w)
+      .attr("height", h)
 
 var xScale = d3.scale.linear()
     .domain(d3.extent(data, function(d) { return d.value; }))
@@ -136,9 +114,49 @@ svg.selectAll(".bar")
         .style("text-anchor", "middle")
         .text("Sealevel in meters");
 
-} 
+}; 
+
+
+Polymer('amsterdam-sealevel', {
+
+  dataset : [
+               {name: "My Place", value: 3.0}, 
+               {name: "Pacific Parc", value: 4.0},
+               {name: "P.C. Hoofthuis", value: 11.7}, 
+                {name: "USC", value: -0.7},
+                {name: "Wethouder Verheijhal", value: 4.0},
+                {name: "Bungehuis", value: 9.1},
+               {name: "Nieuwe Anita", value: 5.7} 
+             ],
+          
+
+  ready: function() {
+    barchart (this.$.bar, this.dataset)
+
+  },
+
+
+    mouseenter: function () {
+
+document.getElementById("sealevel").innerHTML='<h2>Click here to see the Bar Chart</h2> '
+
+},
+     mouseleave: function () {
+
+    document.getElementById("sealevel").innerHTML='<h2>Sealevel</h2>'
+
+  }
+
+    
+
+
+
+
+
 
 });
+
+
 
 </script>
 	

@@ -5,14 +5,16 @@
     <title>Amsterdam, Space and Me</title>
     <link rel="stylesheet" href="style.css">
     <script src="bower_components/platform/platform.js"></script>
-    <script src="script.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/app.js"></script>
+   
   
 
      <link rel="import" href="elements/amsterdam-doors.html">
-     <link rel="import" href="elements/amsterdam-me.html">
+     <link rel="import" href="elements/amsterdam-coordinates.html">
      <link rel="import" href="elements/amsterdam-sealevel.html">
      <link rel="import" href="elements/amsterdam-neighbourhood.html">
+     <link rel="import" href="elements/amsterdam-accordion.html">
+
  </head>
 
  <style type="text/css">
@@ -26,7 +28,7 @@
 
         h2 {
         font-family: "Andale Mono", AndaleMono, monospace;
-        font-size: 20px;
+        font-size: 16px;
         color: black;
         text-align: center;
     }
@@ -50,7 +52,7 @@
           </p1>
 
           <p2>
-            <amsterdam-me></amsterdam-me>
+            <amsterdam-coordinates></amsterdam-coordinates>
           </p2>
           
           <p3>

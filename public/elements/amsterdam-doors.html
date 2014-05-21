@@ -2,8 +2,6 @@
 
 <link rel="import" href="../elements/door-pictures.html">
 
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-
 <polymer-element name="amsterdam-doors" noscript>
 
 <template>
@@ -16,22 +14,29 @@
 
 <script>
 
-	// Polymer('amsterdam-doors', {
+	Polymer('amsterdam-doors', {
 
-	    //mouseenter: function () {
 
-		//document.getElementById("doors").innerHTML='<h2>Click here to see the pictures</h2>'
 
-	//},
+	    mouseenter: function () {
 
-	  	//mouseleave: function () {
+		document.getElementById("doors").innerHTML='<h2>Click here to see the Pictures</h2>'
 
-	    //document.getElementById("doors").innerHTML='<h2>Doors</h2>'
+	},
 
-	 // },
+	  	mouseleave: function () {
+
+	    document.getElementById("doors").innerHTML='<h2>Doors</h2>'
+
+	 },
+
+	 	click: function () {
+
+	 		return pictures
+	 	}
 
 	  
-//});
+});
 
 
 </script>
