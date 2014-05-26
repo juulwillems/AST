@@ -1,50 +1,43 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
-
 <link rel="import" href="../elements/door-pictures.html">
 
 <polymer-element name="amsterdam-doors" noscript>
 
-<template>
+	<template>
 
-<h2 class="hover" id="doors" on-click="{{click}}" on-mouseenter="{{mouseenter}}" on-mouseleave="{{mouseleave}}">Doors</h2>
+		<h2 class="hover" id="doors" on-click="{{click}}" on-mouseenter="{{mouseenter}}" on-mouseleave="{{mouseleave}}">Doors</h2>
 
-<door-pictures pictures="{{pictures}}"></door-pictures>
+		<door-pictures pictures="{{pictures}}"></door-pictures>
 
-</template>
+	</template>
 
-<script>
+	<script>
 
-	Polymer('amsterdam-doors', {
-
-
-
-	    mouseenter: function () {
-
-		document.getElementById("doors").innerHTML='<h2>Click here to see the Pictures</h2>'
-
-	},
-
-	  	mouseleave: function () {
-
-	    document.getElementById("doors").innerHTML='<h2>Doors</h2>'
-
-	 },
-
-	 	click: function () {
-
-	 		return pictures
-	 	}
-
-	  
-});
-
-
-</script>
+		Polymer('amsterdam-doors', {
 
 
 
+		    mouseenter: function () {
+
+			document.getElementById("doors").innerHTML='<h2>Click here to see the Pictures</h2>'
+
+		},
+
+		  	mouseleave: function () {
+
+		    document.getElementById("doors").innerHTML='<h2>Doors</h2>'
+
+		 },
+
+		 	click: function () {
+
+		 		return pictures
+		 	}
 
 
+	});
 
+
+	</script>
 
 </polymer-element>
