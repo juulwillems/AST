@@ -12,7 +12,11 @@
 
 <polymer-element name="amsterdam-coordinates">
 
-<style type="text/css">
+
+
+  <template>
+    
+    <style type="text/css">
 
  
 
@@ -44,11 +48,19 @@
         fill: #380B61; 
     }
 
+    h2 {
+              font-family: "Andale Mono", AndaleMono, monospace;
+              font-size: 16px;
+              color: black;
+              text-align: center;
+          }
+
+            .hover :hover {
+              color: red;
+          }
+
 
 </style>
-
-  <template>
-    
 <h2 id="neighbourhood" class="hover" on-click="{{toggle}}" on-mouseenter="{{mouseenter}}" on-mouseleave="{{mouseleave}}">Coordinates</h2>
  
 
@@ -167,13 +179,13 @@ scatterplot(this.$.scatter, this.dataset)
 },
     mouseenter: function () {
 
-document.getElementById("coordinates").innerHTML='<h2>Click here to see the Scatter Plot</h2> '
+document.getElementById("coordinates").innerHTML='Click here to see the Scatter Plot'
 
 },
 
   mouseleave: function () {
 
-    document.getElementById("coordinates").innerHTML='<h2>Coordinates</h2>'
+    document.getElementById("coordinates").innerHTML='Coordinates'
 
   },
 

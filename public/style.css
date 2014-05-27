@@ -6,6 +6,15 @@ margin-right: auto ;
 
 }
 
+h1 {
+        font-family: "Andale Mono", AndaleMono, monospace;
+        font-size: 36px;
+        color: black;
+        text-align: center;
+    }
+
+
+
  
 
 

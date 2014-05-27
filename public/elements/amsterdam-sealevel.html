@@ -1,5 +1,5 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="../bower_components/core-ajax/core-ajax.html">
+
 
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="/app.js"></script>
@@ -7,7 +7,11 @@
 
 <polymer-element name="amsterdam-sealevel">
 
-  <style type="text/css">
+  
+
+  <template>
+
+    <style type="text/css">
 
       .bar.positive {
           fill: #4B088A;
@@ -45,9 +49,18 @@
           stroke: #A8A8BF;
          }
 
-  </style>
+      h2 {
+              font-family: "Andale Mono", AndaleMono, monospace;
+              font-size: 16px;
+              color: black;
+              text-align: center;
+          }
 
-  <template>
+            .hover :hover {
+              color: red;
+          }
+
+  </style>
 
     <h2 id="sealevel" class="hover" on-click="{{click}}" on-mouseenter="{{mouseenter}}" on-mouseleave="{{mouseleave}}">Sealevel<h2>
 
@@ -129,7 +142,7 @@
                  ],
               
 
-      ready: function() {
+      click: function() {
         barchart (this.$.bar, this.dataset)
 
   },
@@ -137,12 +150,12 @@
 
       mouseenter: function () {
 
-  document.getElementById("sealevel").innerHTML='<h2>Click here to see the Bar Chart</h2> '
+  document.getElementById("sealevel").innerHTML="<h2>Click here to see the Bar Chart</h2>"
 
   },
        mouseleave: function () {
 
-      document.getElementById("sealevel").innerHTML='<h2>Sealevel</h2>'
+      document.getElementById("sealevel").innerHTML="<h2>Sealevel</h2>"
 
     }
 

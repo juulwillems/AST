@@ -5,6 +5,21 @@
 
 	<template>
 
+		<style type="text/css">
+
+		h2 {
+              font-family: "Andale Mono", AndaleMono, monospace;
+              font-size: 16px;
+              color: black;
+              text-align: center;
+          }
+
+            .hover :hover {
+              color: red;
+          }
+
+		</style>
+
 		<h2 class="hover" id="doors" on-click="{{click}}" on-mouseenter="{{mouseenter}}" on-mouseleave="{{mouseleave}}">Doors</h2>
 
 		<door-pictures pictures="{{pictures}}"></door-pictures>

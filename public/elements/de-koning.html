@@ -1,9 +1,58 @@
+
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <link rel="import" href="../bower_components/polymer/polymer.html">
-<polymer-element name="de-koning" noscript>
-    <template>	
-    	<h1>OK Doei!!</h1>
-    	<a href="http://www.youtube.com/watch?v=s9V35HeVmRM" target="_newtab"><img class="deKoning" src="http://www.rtlnieuws.nl/sites/default/files/styles/landscape/public/content/images/archive/46/Willem-alexander-WEB.jpg?itok=ARLD5Pzv"></a>
-	</template>
+
+
+<polymer-element name="de-koning">
+	<script>
+
+var w = 500;
+var h = 1000;
+var padding = 20;
+
+var dataset = [
+				[52.38047, 4.87763], 
+				[52.38642, 4.86982], 
+				[52.37436, 4.88990], 
+				[52.35767, 4.94757],
+				[52.35754, 4,93075], 
+				[52.37201, 4.88936], 
+				[52.37418, 4.87254]
+			];
+
+
+    var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+   
+
+
+   var xScale = d3.scale.linear()
+                     .domain([d3.min(dataset, function(d) { return d[0];}), d3.max(dataset, function(d) { return d[0]; })])
+                     .range([padding, w-padding]);
+
+   var yScale = d3.scale.linear()
+                     .domain([d3.min(dataset, function(d) { return d[1]; }), d3.max(dataset, function(d) { return d[1]; })])
+                     .range([h-padding, padding]);
+
+
+
+   svg.selectAll("circle")  
+   .data(dataset)
+   .enter()
+   .append("circle")
+   .attr("cx", function(d) {
+        return xScale(d[0]);
+   })
+   .attr("cy", function(d) {
+        return yScale(d[1]);
+   })
+   .attr("r", 10);
+	
+
+</script>
 	
  
 </polymer-element>
