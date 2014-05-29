@@ -1,5 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/core-collapse/core-collapse.html">
 <link rel="import" href="../elements/door-pictures.html">
+
 
 <polymer-element name="amsterdam-doors" noscript>
 
@@ -15,14 +17,18 @@
           }
 
             .hover :hover {
-              color: red;
+              color: #000099;
           }
 
 		</style>
 
-		<h2 class="hover" id="doors" on-click="{{click}}" on-mouseenter="{{mouseenter}}" on-mouseleave="{{mouseleave}}">Doors</h2>
+		<h2 class="hover" id="doors" on-click="{{toggle}}" on-mouseenter="{{mouseenter}}" on-mouseleave="{{mouseleave}}">Doors</h2>
 
-		<door-pictures pictures="{{pictures}}"></door-pictures>
+		<core-collapse id="collapse">
+
+			<door-pictures pictures="{{pictures}}"></door-pictures>
+
+		</core-collapse>
 
 	</template>
 
@@ -30,23 +36,22 @@
 
 		Polymer('amsterdam-doors', {
 
-
-
+	
 		    mouseenter: function () {
 
-			document.getElementById("doors").innerHTML='<h2>Click here to see the Pictures</h2>'
+			this.$.doors.innerHTML='<h2>Click here to see the Pictures</h2>'
 
 		},
 
 		  	mouseleave: function () {
 
-		    document.getElementById("doors").innerHTML='<h2>Doors</h2>'
+		 this.$.doors.innerHTML='<h2>Doors</h2>'
 
 		 },
 
-		 	click: function () {
+		 	toggle: function () {
 
-		 		return pictures
+		 		this.$.collapse.toggle();
 		 	}
 
 

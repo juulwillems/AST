@@ -1,0 +1,141 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/core-collapse/core-collapse.html">
+
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="/app.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+
+<polymer-element name="amsterdam-biking">
+
+<template>
+
+  <style type="text/css">
+
+ h2 {
+              font-family: "Andale Mono", AndaleMono, monospace;
+              font-size: 16px;
+              color: black;
+              text-align: center;
+          }
+
+            .hover :hover {
+              color: #000099;
+          }
+
+
+  </style>
+        
+
+        <h2 class="hover" id="biking" on-click="{{toggle}}">Biking</h2>
+
+        
+
+                <svg id="force"></svg>
+
+       
+
+</template>
+
+
+<script>
+
+function forcechart (el, data) {
+
+var width = 500
+var height = 500
+ 
+var color = d3.scale.category20(); 
+ 
+var svg = d3.select("body")
+            .append("svg")
+            .attr("width",width)
+            .attr("height",height)
+ 
+var force = d3.layout.force()
+                     .nodes(dataset.nodes)
+                     .links(dataset.edges)
+                     .size([width, height])
+                     .linkDistance([75])
+                     .charge([-400]) 
+                     .start();
+                     
+var edges = svg.selectAll("line")
+        .data(dataset.edges)
+        .enter()
+        .append("line")
+        .style("stroke", "#2185c5")
+        .style("stroke-width", "1")
+      
+        
+var nodes = svg.selectAll(".node")
+        .data(dataset.nodes)
+        .enter()
+        .append("circle")
+        .attr("class", "node")
+        .attr("r", function() { if(dataset.group==1){ return r=30} else {return r=10}} )
+        .style("fill", function(d) {
+                return color(d.group);
+        })
+        .call(force.drag);
+        
+nodes.append("title")
+    .text(function(d) { return d.name; });
+        
+force.on("tick", function() {
+ 
+edges.attr("x1", function(d) { return d.source.x; })
+     .attr("y1", function(d) { return d.source.y; })
+     .attr("x2", function(d) { return d.target.x; })
+     .attr("y2", function(d) { return d.target.y; });
+ 
+nodes.attr("cx", function(d) { return d.x; })
+     .attr("cy", function(d) { return d.y; });
+ 
+});
+ 
+ };
+
+ 
+
+ Polymer ('amsterdam-biking'), {
+
+
+ data: {
+        nodes: [
+                {name: "My Place", group: "1"},
+                {name: "Pacific Parc", group: "2"},
+                {name: "P.C. Hoofthuis", group: "3"},
+                {name: "USC", group: "4"},
+                {name: "Wethouder Verheijhal", group: "4"},
+                {name: "Bungehuis", group: "3"},
+                {name: "Nieuwe Anita", group: "2"},
+
+        ],
+        edges: [
+                {source: 0, target: 1},
+                {source: 0, target: 2},
+                {source: 0, target: 3},
+                {source: 0, target: 4},
+                {source: 0, target: 5},
+                {source: 0, target: 6},
+                {source: 2, target: 3},
+                {source: 2, target: 4},
+                {source: 2, target: 5},
+                {source: 3, target: 4},
+                {source: 1, target: 6},
+                
+        ]
+},
+
+ ready: function() {
+
+      forcechart (this.$.force, this.data)
+
+
+     }
+
+    }
+ 
+ </script>
+
+</polymer-element>
